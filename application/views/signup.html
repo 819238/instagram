@@ -1,0 +1,170 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="signup-container">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <h2 class="signup-title">SIGNUP</h2>
+
+            <div class="form-group">
+                <label for="{{ form.username.id }}" class="control-label">Username</label>
+                {{ form.username(class="form-control") }}
+
+                {% if form.username.errors %}
+                    <div class="error-messages">
+                        {% for error in form.username.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.fullname.id }}" class="control-label">Fullname</label>
+                {{ form.fullname(class="form-control") }}
+
+                {% if form.fullname.errors %}
+                    <div class="error-messages">
+                        {% for error in form.fullname.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.id }}" class="control-label">Email</label>
+                {{ form.email(class="form-control") }}
+
+                {% if form.email.errors %}
+                    <div class="error-messages">
+                        {% for error in form.email.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.password.id }}" class="control-label">Password</label>
+                {{ form.password(class="form-control") }}
+
+                {% if form.password.errors %}
+                    <div class="error-messages">
+                        {% for error in form.password.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.confirm_password.id }}" class="control-label">Confirm Password</label>
+                {{ form.confirm_password(class="form-control") }}
+
+                {% if form.confirm_password.errors %}
+                    <div class="error-messages">
+                        {% for error in form.confirm_password.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary signup-button", label="Daftar") }}
+                <div class="signup-options">
+                    <small class="login-link">
+                        Sudah punya akun? <a href="{{ url_for('login') }}" class="login-link">Masuk di sini</a>
+                    </small>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.signup-title {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.control-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+.error-messages {
+    margin-top: 5px;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+}
+
+.signup-button {
+    background-color: #0095f6;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-button:hover {
+    background-color: #0080e4;
+}
+
+.login-link {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.login-link a {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+</style>
+{% endblock content %}
